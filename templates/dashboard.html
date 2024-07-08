@@ -1,0 +1,75 @@
+{% extends "layout.html" %} {% block body %}
+
+<!-- Page Header-->
+<header
+  class="masthead"
+  style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')"
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Dashboard</h1>
+          <span class="subheading">Code Thunders Admin Dashboard</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <h2>Basic Options</h2>
+      <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+
+      <a href="/edit/0"
+        ><button class="btn btn-primary">Add a New Post</button></a
+      >
+      <hr />
+      <h2>Upload File</h2>
+      <form action="/uploader" method="post" enctype="multipart/form-data">
+        <input type="file" name="file1" />
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </form>
+      <hr />
+
+      <h2>Edit Posts</h2>
+      <table
+        class="table"
+        style="vertical-align: middle; text-align: center; margin: auto"
+      >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Date</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for post in posts %}
+          <tr>
+            <th scope="row">{{post.Sr_No}}</th>
+            <td>{{post.Title}}</td>
+            <td>{{post.Date}}</td>
+            <td>
+              <a href="/edit/{{post.Sr_No}}"
+                ><button class="btn btn-primary">Edit</button></a
+              >
+            </td>
+            <td>
+              <a href="/delete/{{post.Sr_No}}">
+                <button class="btn btn-primary">Delete</button></a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

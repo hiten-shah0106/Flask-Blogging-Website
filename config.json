@@ -1,0 +1,17 @@
+{
+    "params": {
+        "local_server":"True",
+        "local_uri": "mysql://root:@localhost/codethunders",
+        "prod_uri": "mysql://root:@localhost/codethunders",
+        "fb_url": "https://www.facebook.com/codethunders",
+        "tw_url": "https://www.twitter.com/codethunders",
+        "gh_url": "https://www.github.com/codethunders",
+        "gmail-user": "shahhiten668@gmail.com",
+        "gmail-password": "erki nmnx tqjf fnbo",
+        "blog_author": "Hiten Shah",
+        "no_of_posts": 2,
+        "admin_user": "hiten010607shah@gmail.com",
+        "admin_pass": "01062007",
+        "upload_location": "C:\\Users\\hiten\\OneDrive\\Desktop\\Flask\\static\\uploads"
+    }
+}

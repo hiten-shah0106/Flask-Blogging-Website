@@ -1,0 +1,107 @@
+{% extends "layout.html" %} {% block body %}
+
+<!-- Page Header-->
+<header
+  class="masthead"
+  style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')"
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Dashboard</h1>
+          <span class="subheading">Code Thunders Admin Dashboard</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <h2>Basic Options</h2>
+      <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+      <a href="/edit/0"
+        ><button class="btn btn-primary">Add a New Post</button></a
+      >
+      <hr />
+      <h2>Add/Edit Post</h2>
+      <form style="padding-bottom: 30px" action="/edit/{{Sr_No}}" method="post">
+        <div
+          class="form-group"
+          style="
+            padding: 10px;
+            font-family: 'Open Sans', system-ui, -apple-system,
+              BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+              'Helvetica Neue', sans-serif;
+          "
+        >
+          <label for="title"><b>Title</b></label>
+          <input
+            type="text"
+            name="title"
+            class="form-control"
+            id="title"
+            placeholder="Title"
+            value="{{post.Title}}"
+          />
+        </div>
+        <div class="form-group" style="padding: 10px">
+          <label for="title"><b>Subtitle</b></label>
+          <input
+            type="text"
+            class="form-control"
+            id="subtitle"
+            name="subtitle"
+            placeholder="Subtitle"
+            value="{{post.Subtitle}}"
+          />
+        </div>
+        <div class="form-group" style="padding: 10px">
+          <label for="title"><b>Slug</b></label>
+          <input
+            type="text"
+            class="form-control"
+            id="slug"
+            name="slug"
+            placeholder="post-slug"
+            value="{{post.slug}}"
+          />
+        </div>
+        <div class="form-group" style="padding: 10px">
+          <label for="Content"><b>Content</b></label>
+          <textarea class="form-control" id="Content" name="content" rows="5">
+            {{post.Content}}</textarea
+          >
+        </div>
+        <div class="form-group" style="padding: 10px">
+          <label for="title"><b>Image File</b></label>
+          <input
+            type="text"
+            class="form-control"
+            id="img_file"
+            name="img_url"
+            value="{{post.img_url}}"
+            placeholder="Image File"
+          />
+        </div>
+        <div class="form-group" style="padding: 10px">
+          <label for="title"><b>Author</b></label>
+          <input
+            type="text"
+            class="form-control"
+            id="author"
+            name="author"
+            placeholder="Author"
+            value="{{post.author}}"
+          />
+        </div>
+        <div class="form-group" style="padding: 10px">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
